@@ -1,0 +1,76 @@
+<div nz-row>
+  <h1>Feature Flags</h1>
+  <div nz-col nzSpan="12">
+    <nz-table
+      #rowSelectionTable
+      [nzSize]="'large'"
+      nzBordered
+      nzShowPagination
+      nzShowSizeChanger
+      [nzData]="data"
+      (nzCurrentPageDataChange)="currentPageDataChange($event)"
+    >
+      <thead>
+      <tr>
+        <th
+          nzShowCheckbox
+          [(nzChecked)]="isAllDisplayDataChecked"
+          [nzIndeterminate]="isIndeterminate"
+          (nzCheckedChange)="checkAll($event)"
+        ></th>
+        <th>Feature Flag</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let feature of rowSelectionTable.data; let i = index">
+        <td
+          nzShowCheckbox
+          [(nzChecked)]="mapOfCheckedId[feature]"
+          (nzCheckedChange)="refreshStatus()"
+        ></td>
+        <td>{{ feature }}</td>
+      </tr>
+      </tbody>
+    </nz-table>
+  </div>
+  <div nz-row nzGutter="16">
+    <div nz-col nzSpan="12">
+      <nz-form-item>
+        <nz-form-control>
+      <nz-form-label>Project</nz-form-label>
+          <div nz-row nzGutter="8">
+      <nz-select [(ngModel)]="projectId" (ngModelChange)="refreshStatus()" nzPlaceHolder="Choose">
+        <nz-option *ngFor="let project of projects; let i = index" [nzValue]="project.value" [nzLabel]="project.name"></nz-option>
+      </nz-select>
+          </div>
+        </nz-form-control>
+      </nz-form-item>
+      <nz-form-item>
+        <nz-form-label>Table Entry</nz-form-label>
+        <nz-form-control>
+          <div nz-row nzGutter="8">
+            <div nz-col nzSpan="20">
+              <input #inputString nz-input type="text" readonly [value]="dbRow">
+            </div>
+            <div nz-col nzSpan="4">
+              <button nz-button nzType="default" [ngxClipboard]="inputString">Copy</button>
+            </div>
+          </div>
+        </nz-form-control>
+      </nz-form-item>
+      <nz-form-item>
+        <nz-form-label>SQL Entry</nz-form-label>
+        <nz-form-control>
+          <div nz-row nzGutter="8">
+            <div nz-col nzSpan="20">
+              <input #inputSql nz-input type="text" readonly [value]="sqlCommand"/>
+            </div>
+            <div nz-col nzSpan="4">
+              <button nz-button nzType="default" [ngxClipboard]="inputSql">Copy</button>
+            </div>
+          </div>
+        </nz-form-control>
+      </nz-form-item>
+    </div>
+  </div>
+</div>

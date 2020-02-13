@@ -1,0 +1,36 @@
+{
+  "flags": [
+    "project-settings",
+    "project-settings-test-files",
+    "project-settings-wafer",
+    "project-settings-idle-test",
+    "project-settings-clocks-mapping",
+    "inferred-process-parameters",
+    "iddq",
+    "iddq-vs-signatures",
+    "iddq-vs-pcas-ratio",
+    "vddmin-vs-fmax-simulation",
+    "silicon-vs-simulation",
+    "silicon-vs-simulation-design-profiling",
+    "silicon-vs-simulation-process-profiling",
+    "silicon-vs-simulation-pcas-ratio",
+    "silicon-vs-simulation-monte-carlo-correlation",
+    "material",
+    "design-data",
+    "design-data-full-chip",
+    "design-data-partitions",
+    "design-data-fmax-binning",
+    "design-data-catalog",
+    "design-data-signatures",
+    "design-data-fmax-simulation-by-rc-model",
+    "design-data-fmax-simulation-by-partition",
+    "design-data-fmax-simulation-vs-temperature",
+    "design-data-fmax-simulation-vs-voltage",
+    "design-data-fmax-simulation",
+    "wat-correlation",
+    "dpa-pca-map",
+    "export-reports",
+    "test-files"
+  ]
+  }
+
